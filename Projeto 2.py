@@ -13,11 +13,11 @@ def cria_coordenada(l,c):
 		raise ValueError('cria_coordenada: argumentos invalidos')
 	
 	
-def coordenada_linha():
+def coordenada_linha(linha):
 	'''Funcao coordenada_linha: tuple -> int  
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a linha respetiva.'''
-	
+	return (c[0])
 	
 def coordenada_coluna():
 	'''Funcao coordenada_coluna: tuple -> int 
