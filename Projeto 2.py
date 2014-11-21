@@ -1,25 +1,29 @@
 def cria_coordenada(l,c):
-	'''Funcao cria_coordenada: inteiro x inteiro -> tuplo
-	   Recebe os valores da linha e da coluna.
-	   Devolve a coordenada respectiva, sob a forma (x,y)'''
+	'''Funcao cria_coordenada: int x int -> tuple
+	   Recebe dois argumentos do tipo inteiro, o primeiro corresponde a uma 
+	   linha l (inteiro entre 1 e 4) e o segundo a uma coluna c (inteiro 
+	   entre 1 e 4). 
+           Devolve um elemento do tipo coordenada correspondente a posicao 
+	   (l, c). Se os argumentos nao forem validos gera um ValueError.'''
 
-	if l < 1 or l > 4 or c < 1 or c > 4:
-		raise ValueError('cria_coordenada: argumentos invalidos')
+	if 1 <= l <= 4 and 1 <= c <= 4:
+		return (l,c)
+	
 	else:
-		cord = (c,l)
-		return cord
+		raise ValueError('cria_coordenada: argumentos invalidos')
+	
 	
 def coordenada_linha():
-	'''Funcao coordenada_linha: coordenada -> inteiro 
+	'''Funcao coordenada_linha: tuple -> int  
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a linha respetiva.'''
 	
 	
 def coordenada_coluna():
-	'''Funcao coordenada_coluna: coordenada -> inteiro 
+	'''Funcao coordenada_coluna: tuple -> int 
 	   Recebe um elemento do tipo coordenada. 
-	   Devolve a coluna respetiva.'''	
-		
+	   Devolve a coluna respetiva.'''
+	
 	
 def e_coordenada():
 	'''Funcao e_coordenada: universal -> logico
