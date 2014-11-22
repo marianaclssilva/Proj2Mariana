@@ -16,12 +16,14 @@ def coordenada_linha(coordenada):
 	'''Funcao coordenada_linha: tuple -> int  
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a linha respetiva.'''
+	
 	return (coordenada[0])
 	
 def coordenada_coluna(coordenada):
 	'''Funcao coordenada_coluna: tuple -> int 
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a coluna respetiva.'''
+	
 	return (coordenada[1])
 	
 def e_coordenada(coord_verif):
@@ -29,12 +31,9 @@ def e_coordenada(coord_verif):
 	   Recebe um unico argumento.
 	   Devolve True caso esse argumento seja do tipo coordenada e False 
 	   em caso contrario.'''
-	if not isinstance(coord_verif,tuple) or len(coord_verif) != 2\
-	or not (isinstance(coord_verif[0], int) and isinstance(coord_verif[1], int)):
-		return False
-	return True
 	
-	
+	return isinstance (coord_verif,tuple) and len(coord_verif) == 2
+		
 def coordenadas_iguais(coord1,coord2):
 	'''Funcao coordenadas_iguais: tuple x tuple -> bool 
 	   Recebe como argumentos dois elementos do tipo coordenada. 
