@@ -1,3 +1,9 @@
+# Grupo 34:
+# Bruno Machado - 81930
+# Mariana Silva - 81938
+# Franscisco Santos - 82009
+
+
 def cria_coordenada(l,c):
 	'''Funcao cria_coordenada: int x int -> tuple
 	   Recebe dois argumentos do tipo inteiro, o primeiro corresponde a uma 
