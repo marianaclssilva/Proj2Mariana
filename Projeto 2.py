@@ -6,7 +6,7 @@ def cria_coordenada(l,c):
            Devolve um elemento do tipo coordenada correspondente a posicao 
 	   (l, c). Se os argumentos nao forem validos gera um ValueError.'''
 
-	if 1 <= l <= 4 and 1 <= c <= 4:
+	if 1 <= l <= 4 and 1 <= c <= 4:  
 		return (l,c)
 	
 	else:
@@ -42,13 +42,13 @@ def coordenadas_iguais(coord1,coord2):
 	
 	return coord1[0] == coord2[0] and coord1[1] == coord2[1]
 	
-def cria_tabuleiro():	
+def cria_tabuleiro(): #Bruno	
 	'''Funcao cria_tabuleiro: {} -> tabuleiro
 	   Nao recebe qualquer argumento.
 	   Devolve um elemento do tipo tabuleiro de acordo com a representacao
 	   interna escolhida.'''
 	
-def tabuleiro_posicao():
+def tabuleiro_posicao(): #Bruno
 	'''Funcao tabuleiro_posicao: tabuleiro x coordenada -> inteiro
 	   Recebe como argumentos um elemento t do tipo tabuleiro e um elemento
            c do tipo coordenada.
@@ -60,50 +60,50 @@ def tabuleiro_posicao():
            invalidos" caso nao seja.'''
 	
 	
-def tabuleiro_pontuacao():
+def tabuleiro_pontuacao(): #Bruno
 	'''Funcao tabuleiro_pontuacao: tabuleiro -> inteiro 
 	   Recebe como argumento um elemento t do tipo tabuleiro.
 	   Devolve a pontuacao atual para o tabuleiro t.'''
 	
 	
-def tabuleiro_posicoes_vazias():
+def tabuleiro_posicoes_vazias(): #Mariana
 	'''Funcao tabuleiro_posicoes_vazias: tabuleiro -> lista
 	   Recebe como argumento um elemento t do tipo tabuleiro.
 	   Devolve uma lista contendo as coordenadas de todas as posicoes 
 	   vazias do tabuleiro t.'''
 	
 	
-def tabuleiro_preenche_posicao():
+def tabuleiro_preenche_posicao(): #Mariana
 	'''Funcao tabuleiro_preenche_posicao:  -> 
 	   '''
 	
 	
-def tabuleiro_actualiza_pontuacao():
+def tabuleiro_actualiza_pontuacao(): #Mariana
 	'''Funcao tabuleiro_actualiza_pontuacao:  -> 
 		   '''
 	
 	
-def tabuleiro_redu():
+def tabuleiro_redu(): #Fransciso
 	'''Funcao tabuleiro_redu:  -> 
 		  '''
 	
 	
-def e_tabuleiro():
+def e_tabuleiro(): #Mariana
 	'''Funcao e_tabuleiro:  -> 
 		   '''
 	
 	
-def tabuleiro_terminado():
+def tabuleiro_terminado(): #Fransciso
 	'''Funcao tabuleiro_terminado:  -> 
 		  '''
 	
 	
-def tabuleiros_iguais():
+def tabuleiros_iguais(): #Fransciso
 	'''Funcao tabuleiros_iguais: -> 
 		  '''
 	
 	
-def escreve_tabuleiro():
+def escreve_tabuleiro(): #Bruno
 	'''Funcao escreve_tabuleiro:  -> 
 		 '''
 	
