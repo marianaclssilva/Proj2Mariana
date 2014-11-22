@@ -13,31 +13,38 @@ def cria_coordenada(l,c):
 		raise ValueError('cria_coordenada: argumentos invalidos')
 	
 	
-def coordenada_linha(c):
+def coordenada_linha(cord):
 	'''Funcao coordenada_linha: tuple -> int  
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a linha respetiva.'''
-	return (c[0])
+	return (cord[0])
 	
-def coordenada_coluna():
+def coordenada_coluna(cord):
 	'''Funcao coordenada_coluna: tuple -> int 
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a coluna respetiva.'''
+	return (cord[1])
 	
 	
-def e_coordenada():
+def e_coordenada(cord):
 	'''Funcao e_coordenada: universal -> logico
 	   Recebe um unico argumento.
 	   Devolve True caso esse argumento seja do tipo coordenada e False 
-	   em caso contrario.'''	
+	   em caso contrario.'''
+	if not isinstance(crd,tuple) or len(crd) != 2\
+	or not (isinstance(crd[0], int) and isinstance(crd[1], int)):
+		return False
+	return True
 	
 	
-def coordenadas_iguais():
+def coordenadas_iguais(crd1,crd2):
 	'''Funcao coordenadas_iguais: coordenada x coordenada -> logico 
 	   Recebe como argumentos dois elementos do tipo coordenada. 
 	   Devolve True caso esses argumentos correspondam a mesma 
 	   posicao (l; c) do tabuleiro e False em caso contrario.'''
-	
+	if not crd1[0]==crd2[0] or crd1[1]==crd2[1]: 
+		return False
+	return True
 	
 def cria_tabuleiro():	
 	'''Funcao cria_tabuleiro: {} -> tabuleiro
