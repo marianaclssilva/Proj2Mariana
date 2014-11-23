@@ -47,7 +47,10 @@ def cria_tabuleiro(): #Bruno
 	   Nao recebe qualquer argumento.
 	   Devolve um elemento do tipo tabuleiro de acordo com a representacao
 	   interna escolhida.'''
-	
+	tabuleiro = ([0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],
+	             [0],[0], [0], [0])
+	return tabuleiro
+		
 def tabuleiro_posicao(): #Bruno
 	'''Funcao tabuleiro_posicao: tabuleiro x coordenada -> inteiro
 	   Recebe como argumentos um elemento t do tipo tabuleiro e um elemento
@@ -103,11 +106,15 @@ def tabuleiros_iguais(): #Fransciso
 		  '''
 	
 	
-def escreve_tabuleiro(): #Bruno
-	'''Funcao escreve_tabuleiro:  -> 
-		 '''
+def escreve_tabuleiro(t): #Bruno
+	'''Funcao escreve_tabuleiro: tabuleiro -> {}
+	Recebe um elemento t do tipo tabuleiro e escreve para o ecra a 
+	a representacao externa de um tabuleiro de 2048.'''
 	
-	
+	print ( '',t[0], t[1], t[2], t[3] ,'\n', t[4], t[5], t[6], t[7], '\n', t[8],
+	        t[9], t[10], t[11], '\n', t[12], t[13], t[14], t[15], '\n', 
+	        'pontuacao:', t[16])
+		
 def pede_jogada():
 	'''Funcao pede_jogada: -> 
 		'''
