@@ -92,11 +92,11 @@ def tabuleiro_preenche_posicao(t,c,v): #Mariana
 	   gera um ValueError.'''
 	
 	if e_coordenada(c) == True and isinstance (v,int):
-	# (incompleto)	
+		return # (incompleto)	
 			
 	else:
 		raise ValueError('tabuleiro_preenche_posicao: argumentos\
-		invalidos')	
+ invalidos')	
 
 	
 def tabuleiro_actualiza_pontuacao(t,v): #Mariana
@@ -107,6 +107,14 @@ def tabuleiro_actualiza_pontuacao(t,v): #Mariana
 	   pontos. 
 	   Devolve o tabuleiro modificado. Se os argumentos nao forem validos 
 	   gera um ValueError. '''
+	
+	if v > 0 and v % 4 == 0:
+		return # (incompleto)
+			
+			
+	else:
+		raise ValueError('tabuleiro_actualiza_pontuacao: argumentos\
+ invalidos')	
 	
 	
 def tabuleiro_redu(t,d): #Fransciso
@@ -126,6 +134,7 @@ def e_tabuleiro(): #Mariana
 	   Devolve True se o argumento for do tipo tabuleiro e False em 
 	   caso contrario.'''
 	
+	return # (incompleto)
 	
 def tabuleiro_terminado(t): #Fransciso
 	'''Funcao tabuleiro_terminado: tabuleiro  ->  bool
