@@ -90,6 +90,13 @@ def tabuleiro_preenche_posicao(t,c,v): #Mariana
 	   coordenada 'c'. 
 	   Devolve o tabuleiro modificado. Se os argumentos nao forem validos 
 	   gera um ValueError.'''
+	
+	if e_coordenada(c) == True and isinstance (v,int):
+	# (incompleto)	
+			
+	else:
+		raise ValueError('tabuleiro_preenche_posicao: argumentos\
+		invalidos')	
 
 	
 def tabuleiro_actualiza_pontuacao(t,v): #Mariana
