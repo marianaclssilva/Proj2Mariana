@@ -3,7 +3,7 @@
 # Mariana Silva - 81938
 # Franscisco Santos - 82009
 
-
+# TAD coordenada
 def cria_coordenada(l,c):
 	'''Funcao cria_coordenada: int x int -> tuple
 	   Recebe dois argumentos do tipo inteiro, o primeiro corresponde a uma 
@@ -47,7 +47,8 @@ def coordenadas_iguais(coord1,coord2):
 	   posicao (l, c) do tabuleiro, e False em caso contrario.'''
 	
 	return coord1[0] == coord2[0] and coord1[1] == coord2[1]
-	
+
+# TAD tabuleiro	
 def cria_tabuleiro(): #Bruno	
 	'''Funcao cria_tabuleiro: {} -> tabuleiro
 	   Nao recebe qualquer argumento.
