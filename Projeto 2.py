@@ -94,7 +94,8 @@ def tabuleiro_preenche_posicao(t,c,v): #Mariana
 	   gera um ValueError.'''
 	
 	if e_coordenada(c) == True and isinstance (v,int):
-		return # (incompleto)	
+		t[c] = v	
+		return t
 			
 	else:
 		raise ValueError('tabuleiro_preenche_posicao: argumentos\
