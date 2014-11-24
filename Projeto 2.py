@@ -60,13 +60,13 @@ def cria_tabuleiro(): #Bruno
 	return tabuleiro
 		
 def tabuleiro_posicao(t,c): #Bruno
-	'''Funcao tabuleiro_posicao: tabuleiro x coordenada -> inteiro
-	   Recebe como argumentos um elemento t do tipo tabuleiro e um elemento
-           c do tipo coordenada.
+	'''Funcao tabuleiro_posicao: tabuleiro x tuple -> int
+	   Recebe como argumentos um elemento 't' do tipo tabuleiro e um 
+	   elemento 'c' do tipo coordenada.
 	   Devolve um elemento do tipo inteiro, que corresponde ao valor na 
-	   posicao do tabuleiro correspondente a coordenada c. Caso a posicao 
+	   posicao do tabuleiro correspondente a coordenada 'c'. Caso a posicao 
 	   correspondente a c esteja vazia, devera devolver o valor 0. A funcao
-           deve verificar se o segundo argumento e' uma coordenada valida, e 
+           deve verificar se o segundo argumento e uma coordenada valida, e 
 	   gerar um ValueError com a mensagem "tabuleiro_posicao: argumentos
            invalidos" caso nao seja.'''
 	if c == ():
@@ -89,6 +89,15 @@ def tabuleiro_posicoes_vazias(t): #Mariana
 	   Recebe como argumento um elemento t do tipo tabuleiro.
 	   Devolve uma lista contendo as coordenadas de todas as posicoes 
 	   vazias do tabuleiro t.'''
+	coordenadas = [(1,1), (1,2), (1,3), (1,4), (2,1), (2,2), (2,3), (2,4),
+	               (3,1), (3,2), (3,3), (3,4), (4,1), (4,2), (4,3), (4,4)]
+	coordenada_vazia = []
+	for i in coordenadas:
+		if t[i] == 0:
+			coordenada_vazia += [i, ]
+	return coordenada_vazia
+			
+	
 	
 	
 def tabuleiro_preenche_posicao(t,c,v): #Mariana
@@ -119,8 +128,8 @@ def tabuleiro_actualiza_pontuacao(t,v): #Mariana
 	   gera um ValueError. '''
 	
 	if v > 0 and v % 4 == 0:
-		return # (incompleto)
-			
+		t['pontuacao'] += v
+		return t			
 			
 	else:
 		raise ValueError('tabuleiro_actualiza_pontuacao: argumentos\
@@ -138,13 +147,13 @@ def tabuleiro_reduz(t,d): #Fransciso
 	   pontuacao. Se os argumentos nao forem validos gera um ValueError.'''
 	
 	
-def e_tabuleiro(): #Mariana
+def e_tabuleiro(t_verif): #Mariana
 	'''Funcao e_tabuleiro: universal -> bool
 	   Recebe um unico argumento. 
 	   Devolve True se o argumento for do tipo tabuleiro e False em 
 	   caso contrario.'''
 	
-	return # (incompleto)
+	return isinstance (t_verif,dict) and len(t_verif) == 17
 	
 def tabuleiro_terminado(t): #Fransciso
 	'''Funcao tabuleiro_terminado: tabuleiro  ->  bool
