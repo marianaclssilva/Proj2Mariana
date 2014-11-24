@@ -120,12 +120,12 @@ def tabuleiro_actualiza_pontuacao(t,v): #Mariana
  invalidos')	
 	
 	
-def tabuleiro_redu(t,d): #Fransciso
+def tabuleiro_reduz(t,d): #Fransciso
 	'''Funcao tabuleiro_redu: tabuleiro x string -> tabuleiro 
 	   Recebe como argumento um elemento 't' do tipo tabuleiro e uma
            cadeia de caracteres 'd' correspondente a uma de 4 acoes possiveis. 
-	   Em particular, 'd' devera ser uma das cadeias de caracteres �N�, �S�, 
-	   �W�, �E�. A funcao deve modificar o tabuleiro 't', reduzindo-o 
+	   Em particular, 'd' devera ser uma das cadeias de caracteres 'N', 'S', 
+	   'W', 'E'. A funcao deve modificar o tabuleiro 't', reduzindo-o 
 	   na direcao 'd' de acordo com as regras do jogo 2048. 
 	   Devolve o tabuleiro 't' modificado, incluindo a atualizacao da
 	   pontuacao. Se os argumentos nao forem validos gera um ValueError.'''
