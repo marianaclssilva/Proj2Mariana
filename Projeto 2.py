@@ -74,47 +74,87 @@ def tabuleiro_pontuacao(): #Bruno
 	   Devolve a pontuacao atual para o tabuleiro t.'''
 	
 	
-def tabuleiro_posicoes_vazias(): #Mariana
-	'''Funcao tabuleiro_posicoes_vazias: tabuleiro -> lista
+def tabuleiro_posicoes_vazias(t): #Mariana
+	'''Funcao tabuleiro_posicoes_vazias: tabuleiro -> list
 	   Recebe como argumento um elemento t do tipo tabuleiro.
 	   Devolve uma lista contendo as coordenadas de todas as posicoes 
 	   vazias do tabuleiro t.'''
 	
 	
-def tabuleiro_preenche_posicao(): #Mariana
-	'''Funcao tabuleiro_preenche_posicao:  -> 
-	   '''
+def tabuleiro_preenche_posicao(t,c,v): #Mariana
+	'''Funcao tabuleiro_preenche_posicao: tabuleiro x tuple x int -> tabuleiro
+	   Recebe como argumentos um elemento 't' do tipo tabuleiro, um elemento 
+	   'c' do tipo coordenada e um elemento 'v' do tipo inteiro e modifica 
+	   o tabuleiro 't' colocando o valor 'v' na posicao correspondente a 
+	   coordenada 'c'. 
+	   Devolve o tabuleiro modificado. Se os argumentos nao forem validos 
+	   gera um ValueError.'''
+	
+	if e_coordenada(c) == True and isinstance (v,int):
+		return # (incompleto)	
+			
+	else:
+		raise ValueError('tabuleiro_preenche_posicao: argumentos\
+ invalidos')	
+
+	
+def tabuleiro_actualiza_pontuacao(t,v): #Mariana
+	'''Funcao tabuleiro_actualiza_pontuacao: tabuleiro x int -> tabuleiro
+	   Recebe como argumentos um elemento 't' do tipo tabuleiro e um 
+	   elemento 'v' do tipo inteiro, nao negativo e multiplo de 4. Modifica
+	   o tabuleiro 't', acrescentando ao valor da respectiva pontuacao 'v' 
+	   pontos. 
+	   Devolve o tabuleiro modificado. Se os argumentos nao forem validos 
+	   gera um ValueError. '''
+	
+	if v > 0 and v % 4 == 0:
+		return # (incompleto)
+			
+			
+	else:
+		raise ValueError('tabuleiro_actualiza_pontuacao: argumentos\
+ invalidos')	
 	
 	
-def tabuleiro_actualiza_pontuacao(): #Mariana
-	'''Funcao tabuleiro_actualiza_pontuacao:  -> 
-		   '''
-	
-	
-def tabuleiro_redu(): #Fransciso
-	'''Funcao tabuleiro_redu:  -> 
-		  '''
+def tabuleiro_redu(t,d): #Fransciso
+	'''Funcao tabuleiro_redu: tabuleiro x string -> tabuleiro 
+	   Recebe como argumento um elemento 't' do tipo tabuleiro e uma
+           cadeia de caracteres 'd' correspondente a uma de 4 acoes possiveis. 
+	   Em particular, 'd' devera ser uma das cadeias de caracteres ’N’, ’S’, 
+	   ’W’, ’E’. A funcao deve modificar o tabuleiro 't', reduzindo-o 
+	   na direcao 'd' de acordo com as regras do jogo 2048. 
+	   Devolve o tabuleiro 't' modificado, incluindo a atualizacao da
+	   pontuacao. Se os argumentos nao forem validos gera um ValueError.'''
 	
 	
 def e_tabuleiro(): #Mariana
-	'''Funcao e_tabuleiro:  -> 
-		   '''
+	'''Funcao e_tabuleiro: universal -> bool
+	   Recebe um unico argumento. 
+	   Devolve True se o argumento for do tipo tabuleiro e False em 
+	   caso contrario.'''
+	
+	return # (incompleto)
+	
+def tabuleiro_terminado(t): #Fransciso
+	'''Funcao tabuleiro_terminado: tabuleiro  ->  bool
+	   Recebe como argumento um elemento 't' do tipo tabuleiro. 
+	   Devolve True caso o tabuleiro 't' esteja terminado, ou seja, caso 
+	   esteja cheio e nao existam movimentos possiveis, e False em caso 
+	   contrario.'''
 	
 	
-def tabuleiro_terminado(): #Fransciso
-	'''Funcao tabuleiro_terminado:  -> 
-		  '''
-	
-	
-def tabuleiros_iguais(): #Fransciso
-	'''Funcao tabuleiros_iguais: -> 
-		  '''
+def tabuleiros_iguais(t1,t2): #Fransciso
+	'''Funcao tabuleiros_iguais: tabuleiro x tabuleiro -> bool
+	   Recebe como argumentos dois elementos 't1' e 't2' do tipo tabuleiro.
+	   Devolve True caso 't1' e 't2' correspondam a dois tabuleiros com a 
+	   mesma configuracao e pontuacao e False em caso contrario.'''
 	
 	
 def escreve_tabuleiro(t): #Bruno
 	'''Funcao escreve_tabuleiro: tabuleiro -> {}
-	Recebe um elemento t do tipo tabuleiro e escreve para o ecra a 
-	a representacao externa de um tabuleiro de 2048.'''
+	   Recebe como argumento um elemento 't' do tipo tabuleiro.
+           Escreve para o ecra a representacao externa de um tabuleiro de 2048.
+	   Se os argumentos nao forem validos gera um ValueError.'''
 	
 	print ( '','[',t[0],']','[', t[1],']','[', t[2],']','[', t[3] ,']','\n',
 	        '[', t[4],']','[',t[5],']','[', t[6],']','[', t[7],']','\n',
