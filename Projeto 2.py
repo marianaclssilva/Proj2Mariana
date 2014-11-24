@@ -71,10 +71,11 @@ def tabuleiro_posicao(): #Bruno
            invalidos" caso nao seja.'''
 	
 	
-def tabuleiro_pontuacao(): #Bruno
+def tabuleiro_pontuacao(t): #Bruno
 	'''Funcao tabuleiro_pontuacao: tabuleiro -> inteiro 
 	   Recebe como argumento um elemento t do tipo tabuleiro.
 	   Devolve a pontuacao atual para o tabuleiro t.'''
+	return t['pontuacao']
 	
 	
 def tabuleiro_posicoes_vazias(t): #Mariana
