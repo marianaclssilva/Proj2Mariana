@@ -53,7 +53,9 @@ def cria_tabuleiro(): #Bruno
 	   Nao recebe qualquer argumento.
 	   Devolve um elemento do tipo tabuleiro de acordo com a representacao
 	   interna escolhida.'''
-	tabuleiro = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+	tabuleiro = {(1,1): 0, (1,2): 0, (1,3): 0, (1,4): 0, (2,1):0, (2,2):0,
+	             (2,3): 0, (2,4): 0, (3,1): 0, (3,2): 0, (3,3):0, (3,4):0, 
+	             (4,1): 0, (4,2): 0, (4,3): 0, (4,4): 0, 'pontuacao': 0}
 	return tabuleiro
 		
 def tabuleiro_posicao(): #Bruno
@@ -120,8 +122,8 @@ def tabuleiro_redu(t,d): #Fransciso
 	'''Funcao tabuleiro_redu: tabuleiro x string -> tabuleiro 
 	   Recebe como argumento um elemento 't' do tipo tabuleiro e uma
            cadeia de caracteres 'd' correspondente a uma de 4 acoes possiveis. 
-	   Em particular, 'd' devera ser uma das cadeias de caracteres ’N’, ’S’, 
-	   ’W’, ’E’. A funcao deve modificar o tabuleiro 't', reduzindo-o 
+	   Em particular, 'd' devera ser uma das cadeias de caracteres ï¿½Nï¿½, ï¿½Sï¿½, 
+	   ï¿½Wï¿½, ï¿½Eï¿½. A funcao deve modificar o tabuleiro 't', reduzindo-o 
 	   na direcao 'd' de acordo com as regras do jogo 2048. 
 	   Devolve o tabuleiro 't' modificado, incluindo a atualizacao da
 	   pontuacao. Se os argumentos nao forem validos gera um ValueError.'''
@@ -156,11 +158,11 @@ def escreve_tabuleiro(t): #Bruno
            Escreve para o ecra a representacao externa de um tabuleiro de 2048.
 	   Se os argumentos nao forem validos gera um ValueError.'''
 	
-	print ( '','[',t[0],']','[', t[1],']','[', t[2],']','[', t[3] ,']','\n',
-	        '[', t[4],']','[',t[5],']','[', t[6],']','[', t[7],']','\n',
-	        '[',t[8],']','[',t[9],']','[', t[10], ']','[',t[11],']', '\n',
-	        '[', t[12],']','[', t[13],']','[', t[14],']', '[',t[15],']', '\n', 
-	        'pontuacao:', t[16])
+	print ( '','[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']','[', t[(1,4)] ,']','\n',
+	        '[', t[(2,1)],']','[',t[(2,2)],']','[', t[(2,3)],']','[', t[(2,4)],']','\n',
+	        '[',t[(3,1)],']','[',t[(3,2)],']','[', t[(3,3)], ']','[',t[(3,4)],']', '\n',
+	        '[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']', '[',t[(4,4)],']', '\n', 
+	        'pontuacao:', t['pontuacao'])
 		
 def pede_jogada():
 	'''Funcao pede_jogada: -> 
