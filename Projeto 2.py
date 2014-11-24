@@ -59,16 +59,22 @@ def cria_tabuleiro(): #Bruno
 	             (4,1): 0, (4,2): 0, (4,3): 0, (4,4): 0, 'pontuacao': 0}
 	return tabuleiro
 		
-def tabuleiro_posicao(): #Bruno
+def tabuleiro_posicao(t,c): #Bruno
 	'''Funcao tabuleiro_posicao: tabuleiro x coordenada -> inteiro
 	   Recebe como argumentos um elemento t do tipo tabuleiro e um elemento
            c do tipo coordenada.
 	   Devolve um elemento do tipo inteiro, que corresponde ao valor na 
 	   posicao do tabuleiro correspondente a coordenada c. Caso a posicao 
 	   correspondente a c esteja vazia, devera devolver o valor 0. A funcao
-           deve verificar se o segundo argumento e uma coordenada valida, e 
+           deve verificar se o segundo argumento e' uma coordenada valida, e 
 	   gerar um ValueError com a mensagem "tabuleiro_posicao: argumentos
            invalidos" caso nao seja.'''
+	if c == ():
+		return 0
+	elif e_coordenada(c) == False:
+		return ValueError('tabuleiro_posicao: argumentos invalidos')
+	else: 
+		return t[c]
 	
 	
 def tabuleiro_pontuacao(t): #Bruno
