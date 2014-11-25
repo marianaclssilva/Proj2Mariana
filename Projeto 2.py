@@ -54,6 +54,9 @@ def cria_tabuleiro(): #Bruno
 	   Nao recebe qualquer argumento.
 	   Devolve um elemento do tipo tabuleiro de acordo com a representacao
 	   interna escolhida.'''
+	# A representacao interna escolhida para um elemento do tipo tabuleiro 
+	# foi um dicionario com 17 entradas, que contem as coordenadas e a 
+	# pontuacao (incompleto...)
 	tabuleiro = {(1,1): 0, (1,2): 0, (1,3): 0, (1,4): 0, (2,1):0, (2,2):0,
 	             (2,3): 0, (2,4): 0, (3,1): 0, (3,2): 0, (3,3):0, (3,4):0, 
 	             (4,1): 0, (4,2): 0, (4,3): 0, (4,4): 0, 'pontuacao': 0}
