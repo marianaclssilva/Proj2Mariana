@@ -38,7 +38,9 @@ def e_coordenada(coord_verif):
 	   Devolve True caso esse argumento seja do tipo coordenada e False 
 	   em caso contrario.'''
 	
-	return isinstance (coord_verif,tuple) and len(coord_verif) == 2
+	return isinstance (coord_verif,tuple) and len(coord_verif) == 2 and \
+isinstance (coordenada_linha(coord_verif),int) and \
+isinstance (coordenada_coluna(coord_verif),int) 
 		
 def coordenadas_iguais(coord1,coord2):
 	'''Funcao coordenadas_iguais: tuple x tuple -> bool 
