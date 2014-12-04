@@ -139,7 +139,7 @@ def tabuleiro_actualiza_pontuacao(t,v): #Mariana
 		raise ValueError('tabuleiro_actualiza_pontuacao: argumentos\
  invalidos')	
 	
-	
+# Estamos a considerar a coordenada (0,0) como sendo o ponto mais esquerda e em cima do tabuleiro
 def tabuleiro_reduz(t,d): #Fransciso
 	'''Funcao tabuleiro_redu: dict x string -> dict 
 	   Recebe como argumento um elemento 't' do tipo tabuleiro e uma
@@ -149,6 +149,35 @@ def tabuleiro_reduz(t,d): #Fransciso
 	   acordo com as regras do jogo 2048. 
 	   Devolve o tabuleiro 't' modificado, incluindo a atualizacao da
 	   pontuacao. Se os argumentos nao forem validos gera um ValueError.'''
+
+	   tecla = {'N': (-1,0), 'S': (1,0), 'W': (0, -1), 'E': (0,1)}
+	   cc_direcao = tecla[d]
+	   cc_direcao_x = coordenada_linha(cc)
+	   cc_direcao_y = coordenada_coluna(cc)
+	   for linha in range(4):
+	   		for coluna in range(4):
+	   			linha_original = linha
+	   			coluna_original = coluna
+	   			coordenada_original = cria_coordenada(linha, coluna)
+	   			valor_original = tabuleiro_posicao(t,coordenada_original)
+
+	   			while True:
+	   				coordenada = cria_coordenada(linha,coluna)
+	   				if not e_coordenada(coordenada):
+	   					linha -= cc_direcao_x
+	   					coluna -= cc_direcao_y
+	   					coordenada = cria_coordenada(linha,coluna)
+	   					tabuleiro_preenche_posicao = (t, coordenada, valor_original)
+	   					break
+
+
+	   				linha += cc_direcao_x
+	   				coluna += cc_direcao_y
+
+
+
+
+
 	
 	
 def e_tabuleiro(t_verif): #Mariana
@@ -157,7 +186,7 @@ def e_tabuleiro(t_verif): #Mariana
 	   Devolve True se o argumento for do tipo tabuleiro e False em 
 	   caso contrario.'''
 	
-	return isinstance (t_verif,dict) and len(t_verif) == 17
+	return isinstance (t_verif,dict) and len(t_verif) == 17  # esta errado
 	
 def tabuleiro_terminado(t): #Fransciso
 	'''Funcao tabuleiro_terminado: dict -> bool
