@@ -4,7 +4,7 @@
 # Franscisco Santos - 82009
 
 # Funcoes TAD coordenada
-def cria_coordenada(l,c):
+def cria_coordenada(l,c): # Construtor
 	'''Funcao cria_coordenada: int x int -> tuple
 	   Recebe dois argumentos do tipo inteiro, o primeiro corresponde a uma 
 	   linha l (inteiro entre 1 e 4) e o segundo a uma coluna c (inteiro 
@@ -18,31 +18,32 @@ def cria_coordenada(l,c):
 	else:
 		raise ValueError('cria_coordenada: argumentos invalidos')
 	
-def coordenada_linha(coordenada):
+def coordenada_linha(coordenada): # Seletor
 	'''Funcao coordenada_linha: tuple -> int  
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a linha respetiva.'''
 	
 	return (coordenada[0])
 	
-def coordenada_coluna(coordenada):
+def coordenada_coluna(coordenada): # Seletor
 	'''Funcao coordenada_coluna: tuple -> int 
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a coluna respetiva.'''
 	
 	return (coordenada[1])
 	
-def e_coordenada(coord_verif):
+def e_coordenada(coord_verif): # Reconhecedor
 	'''Funcao e_coordenada: universal -> bool
 	   Recebe um unico argumento.
 	   Devolve True caso esse argumento seja do tipo coordenada e False 
 	   em caso contrario.'''
 	
 	return isinstance (coord_verif,tuple) and len(coord_verif) == 2 and \
-isinstance (coordenada_linha(coord_verif),int) and \
-isinstance (coordenada_coluna(coord_verif),int) 
+1 <= coordenada_linha(coord_verif) <= 4 and \
+1 <= coordenada_coluna(coord_verif) <= 4
+
 		
-def coordenadas_iguais(coord1,coord2):
+def coordenadas_iguais(coord1,coord2): # Teste
 	'''Funcao coordenadas_iguais: tuple x tuple -> bool 
 	   Recebe como argumentos dois elementos do tipo coordenada. 
 	   Devolve True, caso esses argumentos correspondam a mesma 
