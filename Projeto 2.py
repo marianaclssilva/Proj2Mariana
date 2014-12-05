@@ -177,7 +177,6 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 
 
 
-
 	
 	
 def e_tabuleiro(t_verif): # Reconhecedor     #Mariana
@@ -219,13 +218,24 @@ def pede_jogada(): # Teste
 	'''Funcao pede_jogada: {} -> string
 	   Nao recebe qualquer argumento, limitando-se a pedir ao utilizador 
 	   para introduzir uma direcao (N, S, E ou W) e se o valor introduzido 
-	   for valido a funcao pede novamente a informacao de jogada ao 
+	   for invalido a funcao pede novamente a informacao de jogada ao 
 	   utilizador. 
 	   Devolve uma cadeia de caracteres correspondente a direcao escolhida 
 	   pelo utilizador.'''
 	
+	jogada = input('Introduza uma jogada (N, S, E, W): ')
 	
-	
+	if (jogada != 'N') and (jogada != 'S') and (jogada != 'E') and \
+	   (jogada != 'W'):
+		
+		while (jogada != 'N') and (jogada != 'S') and (jogada != 'E') \
+		      and (jogada != 'W'):
+			
+			print('Jogada invalida.')
+			jogada = input('Introduza uma jogada (N, S, E, W): ')
+	return jogada
+
+
 def jogo_2048(): # Teste
 	'''Funcao jogo_2048: -> 
 		  '''
