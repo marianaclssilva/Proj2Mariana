@@ -39,8 +39,8 @@ def e_coordenada(coord_verif): # Reconhecedor
 	   em caso contrario.'''
 	
 	return isinstance (coord_verif,tuple) and len(coord_verif) == 2 and \
-1 <= coordenada_linha(coord_verif) <= 4 and \
-1 <= coordenada_coluna(coord_verif) <= 4
+	       1 <= coordenada_linha(coord_verif) <= 4 and \
+	       1 <= coordenada_coluna(coord_verif) <= 4
 
 		
 def coordenadas_iguais(coord1,coord2): # Teste
