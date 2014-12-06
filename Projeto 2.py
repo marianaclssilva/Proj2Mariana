@@ -260,7 +260,7 @@ def escreve_tabuleiro(t): # Transformador de saida     #Bruno
 		print ('[', t[(2,1)],']','[',t[(2,2)],']','[', t[(2,3)],']','[', t[(2,4)],']')
 		print ('[',t[(3,1)],']','[',t[(3,2)],']','[', t[(3,3)], ']','[',t[(3,4)],']')
 		print ('[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']', '[',t[(4,4)],']') 
-		print ('pontuacao:', t['pontuacao'])
+		print ('Pontuacao:', t['pontuacao'])
 		
 	else:
 		raise ValueError('escreve_tabuleiro: argumentos invalidos')	
