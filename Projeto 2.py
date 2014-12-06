@@ -227,6 +227,8 @@ def e_tabuleiro(t_verif): # Reconhecedor     #Mariana
 	   Devolve True se o argumento for do tipo tabuleiro e False em 
 	   caso contrario.'''
 	for i in t_verif:
+		if i == 'pontuacao':
+			return True
 		if not e_coordenada(i):
 			return False
 	return isinstance (t_verif,dict) and len(t_verif) == 17 
