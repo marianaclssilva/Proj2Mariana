@@ -218,7 +218,7 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 						break
 				tabuleiro_preenche_posicao(t,coordenada, valor_original)
 				tabuleiro_preenche_posicao(t, coordenada_atual, 0)
-
+	return t
 
 
 	
