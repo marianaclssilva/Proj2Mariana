@@ -117,6 +117,7 @@ def tabuleiro_preenche_posicao(t,c,v): # Modificador   #Mariana
 	
 	if e_coordenada(c) == True and isinstance (v,int):
 		t[c] = v
+		return t
 			
 	else:
 		raise ValueError('tabuleiro_preenche_posicao: argumentos\
@@ -249,11 +250,11 @@ def escreve_tabuleiro(t): # Transformador de saida     #Bruno
            Escreve para o ecra a representacao externa de um tabuleiro de 2048.
 	   Se os argumentos nao forem validos gera um ValueError.'''
 	
-	print ( '','[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']','[', t[(1,4)] ,']','\n',
-	        '[', t[(2,1)],']','[',t[(2,2)],']','[', t[(2,3)],']','[', t[(2,4)],']','\n',
-	        '[',t[(3,1)],']','[',t[(3,2)],']','[', t[(3,3)], ']','[',t[(3,4)],']', '\n',
-	        '[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']', '[',t[(4,4)],']', '\n', 
-	        'pontuacao:', t['pontuacao'])
+	print ( '','[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']','[', t[(1,4)] ,']','')
+	print ('','[', t[(2,1)],']','[',t[(2,2)],']','[', t[(2,3)],']','[', t[(2,4)],']','')
+	print ('','[',t[(3,1)],']','[',t[(3,2)],']','[', t[(3,3)], ']','[',t[(3,4)],']','')
+	print ('','[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']', '[',t[(4,4)],']','') 
+	print ('pontuacao:', t['pontuacao'])
 		
 def pede_jogada(): # Teste
 	'''Funcao pede_jogada: {} -> string
