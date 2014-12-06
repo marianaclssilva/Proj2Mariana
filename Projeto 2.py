@@ -172,8 +172,7 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 					linha = linha_original
 					coluna = coluna_original
 					break
-				if not e_coordenada(coordenada):
-					tabuleiro_preenche_posicao(t, coordenada)
+				if valor_original == 0:
 					break
 				elif coordenada not in tabuleiro_posicoes_vazias(t):
 					valor = tabuleiro_posicao(t, coordenada)
@@ -186,7 +185,36 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 						break
 				tabuleiro_preenche_posicao(t,coordenada, valor_original)
 				tabuleiro_preenche_posicao(t, coordenada_atual, 0)
-
+	for coluna in range(1,5,1):
+		for linha in range(1,5,1):
+			linha_original = linha
+			coluna_original = coluna
+			coordenada_original = cria_coordenada(linha_original, coluna_original)
+			valor_original = tabuleiro_posicao(t,coordenada_original)
+			
+			while True:
+				coordenada_atual = cria_coordenada(linha, coluna)
+				linha += cc_direcao_x
+				coluna += cc_direcao_y
+				try:
+					coordenada = cria_coordenada(linha,coluna)
+				except:
+					linha = linha_original
+					coluna = coluna_original
+					break
+				if valor_original == 0:
+					break
+				elif coordenada not in tabuleiro_posicoes_vazias(t):
+					valor = tabuleiro_posicao(t, coordenada)
+					if valor == valor_original:
+						valor += valor
+						tabuleiro_preenche_posicao(t, coordenada, valor)
+						tabuleiro_preenche_posicao(t, coordenada_atual, 0)
+						break
+					else:
+						break
+				tabuleiro_preenche_posicao(t,coordenada, valor_original)
+				tabuleiro_preenche_posicao(t, coordenada_atual, 0)
 
 
 
