@@ -180,6 +180,7 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 					if valor == valor_original:
 						valor += valor
 						tabuleiro_preenche_posicao(t, coordenada, valor)
+						tabuleiro_actualiza_pontuacao(t,valor)
 						tabuleiro_preenche_posicao(t, coordenada_atual, 0)
 						break
 					else:
@@ -210,6 +211,7 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 					if valor == valor_original:
 						valor += valor
 						tabuleiro_preenche_posicao(t, coordenada, valor)
+						tabuleiro_actualiza_pontuacao(t,valor)
 						tabuleiro_preenche_posicao(t, coordenada_atual, 0)
 						break
 					else:
@@ -250,7 +252,7 @@ def escreve_tabuleiro(t): # Transformador de saida     #Bruno
            Escreve para o ecra a representacao externa de um tabuleiro de 2048.
 	   Se os argumentos nao forem validos gera um ValueError.'''
 	
-	print ( '[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']','[', t[(1,4)] ,']')
+	print ('[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']','[', t[(1,4)] ,']')
 	print ('[', t[(2,1)],']','[',t[(2,2)],']','[', t[(2,3)],']','[', t[(2,4)],']')
 	print ('[',t[(3,1)],']','[',t[(3,2)],']','[', t[(3,3)], ']','[',t[(3,4)],']')
 	print ('[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']', '[',t[(4,4)],']') 
