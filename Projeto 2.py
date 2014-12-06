@@ -37,7 +37,8 @@ def e_coordenada(coord_verif): # Reconhecedor
 	   Recebe um unico argumento.
 	   Devolve True caso esse argumento seja do tipo coordenada e False 
 	   em caso contrario.'''
-	
+	# Para um argumento ser considrado uma coordenada tem de ser um tuplo 
+	# com apenas dois elementos e esses elementos tem de (incompleto...)
 	return isinstance (coord_verif,tuple) and len(coord_verif) == 2 and \
 	       1 <= coordenada_linha(coord_verif) <= 4 and \
 	       1 <= coordenada_coluna(coord_verif) <= 4
@@ -60,7 +61,8 @@ def cria_tabuleiro(): # Construtor	#Bruno
 	
 	# A representacao interna escolhida para um elemento do tipo 'tabuleiro' 
 	# foi um dicionario com 17 entradas, que contem as coordenadas e a 
-	# pontuacao (incompleto...)
+	# pontuacao. As chaves sao as coordenadas(l,c)... e o valor de cada chave 
+	# e 0(incompleto...)
 	tabuleiro = {(1,1): 0, (1,2): 0, (1,3): 0, (1,4): 0, (2,1):0, (2,2):0,
 	             (2,3): 0, (2,4): 0, (3,1): 0, (3,2): 0, (3,3):0, (3,4):0, 
 	             (4,1): 0, (4,2): 0, (4,3): 0, (4,4): 0, 'pontuacao': 0}
@@ -237,5 +239,11 @@ def pede_jogada(): # Teste
 
 
 def jogo_2048(): # Teste
-	'''Funcao jogo_2048: -> 
-		  '''
+	'''Funcao jogo_2048: {} -> {} 
+	   Nao recebe qualquer argumento e permite ao utilizador jogar um jogo 
+	   completo de 2048. Em cada turno, a funcao escreve o tabuleiro no 
+	   ecra e pede ao utilizador para introduzir uma nova jogada. 
+	   Caso a jogada seja valida, atualiza o tabuleiro e repete este 
+	   processo ate o jogo terminar. Caso contrario, escreve para o ecra a 
+	   indicação "Jogada invalida." e solicita uma nova jogada ao 
+	   utilizador.'''
