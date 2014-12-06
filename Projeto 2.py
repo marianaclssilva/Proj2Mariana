@@ -99,7 +99,7 @@ def tabuleiro_posicoes_vazias(t): # Seletor     #Mariana
 	   vazias do tabuleiro 't'.'''
 	vazio =  []
 	for i in t:
-		if t == 'pontuacao':
+		if i == 'pontuacao':
 			return vazio
 		elif t[i] == 0:
 			vazio += [i, ]
