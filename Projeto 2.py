@@ -219,10 +219,8 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 				tabuleiro_preenche_posicao(t,coordenada, valor_original)
 				tabuleiro_preenche_posicao(t, coordenada_atual, 0)
 	return t
-
-
 	
-	
+		
 def e_tabuleiro(t_verif): # Reconhecedor     #Mariana
 	'''Funcao e_tabuleiro: universal -> bool
 	   Recebe um unico argumento. 
@@ -253,15 +251,16 @@ def escreve_tabuleiro(t): # Transformador de saida     #Bruno
 	   Recebe como argumento um elemento 't' do tipo tabuleiro.
            Escreve para o ecra a representacao externa de um tabuleiro de 2048.
 	   Se os argumentos nao forem validos gera um ValueError.'''
-	if e_tabuleiro(t) == False:
-		raise ValueError('escreve_tabuleiro: argumentos invalidos')
-	else:
+	
+	if e_tabuleiro(t) == True:
+	
 		print ('[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']','[', t[(1,4)] ,']')
 		print ('[', t[(2,1)],']','[',t[(2,2)],']','[', t[(2,3)],']','[', t[(2,4)],']')
 		print ('[',t[(3,1)],']','[',t[(3,2)],']','[', t[(3,3)], ']','[',t[(3,4)],']')
 		print ('[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']', '[',t[(4,4)],']') 
 		print ('pontuacao:', t['pontuacao'])
-	
+		
+	raise ValueError('escreve_tabuleiro: argumentos invalidos')	
 	
 		
 def pede_jogada(): # Teste
@@ -307,8 +306,3 @@ def jogo_2048(): # Teste
 	   Recebe um elemento do tipo tabuleiro e preenche uma posicao livre, 
 	   escolhida aleatoriamente, com um dos numeros 2 ou 4, de acordo com 
 	   as probabilidades ja indicadas.'''
-<<<<<<< HEAD
-	
-=======
-	
->>>>>>> 6a81c787377df71c5137b3053c82cefdc72e7c5f
