@@ -307,4 +307,8 @@ def jogo_2048(): # Teste
 	   Recebe um elemento do tipo tabuleiro e preenche uma posicao livre, 
 	   escolhida aleatoriamente, com um dos numeros 2 ou 4, de acordo com 
 	   as probabilidades ja indicadas.'''
+<<<<<<< HEAD
 	
+=======
+	
+>>>>>>> 6a81c787377df71c5137b3053c82cefdc72e7c5f
