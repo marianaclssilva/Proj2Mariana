@@ -239,6 +239,12 @@ def tabuleiro_terminado(t): # Reconhecedor    #Fransciso
 	   esteja cheio e nao existam movimentos possiveis, e False em caso 
 	   contrario.'''
 	
+	direcao = ['N','S','W','E']
+	for d in direcao:
+		if not tabuleiro_reduz(t,d)and not tabuleiro_posicoes_vazias(t):
+			return True
+		return False	
+	
 	
 def tabuleiros_iguais(t1,t2): # Teste    #Fransciso
 	'''Funcao tabuleiros_iguais: dict x dict -> bool
