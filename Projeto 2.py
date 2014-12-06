@@ -256,5 +256,5 @@ def jogo_2048(): # Teste
 	   ecra e pede ao utilizador para introduzir uma nova jogada. 
 	   Caso a jogada seja valida, atualiza o tabuleiro e repete este 
 	   processo ate o jogo terminar. Caso contrario, escreve para o ecra a 
-	   indicação "Jogada invalida." e solicita uma nova jogada ao 
+	   indicacao "Jogada invalida." e solicita uma nova jogada ao 
 	   utilizador.'''
