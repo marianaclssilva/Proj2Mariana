@@ -241,7 +241,7 @@ def tabuleiros_iguais(t1,t2): # Teste    #Fransciso
 	   Recebe como argumentos dois elementos 't1' e 't2' do tipo tabuleiro.
 	   Devolve True caso 't1' e 't2' correspondam a dois tabuleiros com a 
 	   mesma configuracao e pontuacao, e False em caso contrario.'''
-	
+	return t1 == t2
 	
 def escreve_tabuleiro(t): # Transformador de saida     #Bruno
 	'''Funcao escreve_tabuleiro: dict -> {}
