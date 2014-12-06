@@ -97,13 +97,12 @@ def tabuleiro_posicoes_vazias(t): # Seletor     #Mariana
 	   Recebe como argumento um elemento 't' do tipo tabuleiro.
 	   Devolve uma lista contendo as coordenadas de todas as posicoes 
 	   vazias do tabuleiro 't'.'''
-	coordenadas = [(1,1), (1,2), (1,3), (1,4), (2,1), (2,2), (2,3), (2,4),
-	               (3,1), (3,2), (3,3), (3,4), (4,1), (4,2), (4,3), (4,4)]
-	coordenada_vazia = []
-	for i in coordenadas:
-		if t[i] == 0:
-			coordenada_vazia += [i, ]
-	return coordenada_vazia
+	vazio =  []
+	for i in t:
+		if t == 'pontuacao':
+			return vazio
+		elif t[i] == 0:
+			vazio += [i, ]
 			
 	
 def tabuleiro_preenche_posicao(t,c,v): # Modificador   #Mariana
