@@ -98,12 +98,13 @@ def tabuleiro_posicoes_vazias(t): # Seletor     #Mariana
 	   Devolve uma lista contendo as coordenadas de todas as posicoes 
 	   vazias do tabuleiro 't'.'''
 	vazio =  []
-	for i in t:
-		if i == 'pontuacao':
-			return vazio
-		elif t[i] == 0:
-			vazio += [i, ]
-			
+	for l in range(1,5,1):
+		for c in range(1,5,1):
+			cc = cria_cordenada(l,c)
+			if t[cc] == 0:
+				vazio += [t[cc], ]
+	return vazio
+
 	
 def tabuleiro_preenche_posicao(t,c,v): # Modificador   #Mariana
 	'''Funcao tabuleiro_preenche_posicao: dict x tuple x int -> dict
