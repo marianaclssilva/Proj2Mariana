@@ -294,3 +294,16 @@ def jogo_2048(): # Teste
 	   processo ate o jogo terminar. Caso contrario, escreve para o ecra a 
 	   indicacao "Jogada invalida." e solicita uma nova jogada ao 
 	   utilizador.'''
+
+#def copia_tabuleiro(t):
+	'''Funcao copia_tabuleiro: dict -> dict
+	   Recebe como argumento um elemento do tipo tabuleiro.
+	   Devolve uma copia do mesmo'''
+#	return t
+
+#def preenche_posicao_aleatoria(t):
+	'''Funcao preenche_posicao_aleatoria: dict -> dict
+	   Recebe um elemento do tipo tabuleiro e preenche uma posicao livre, 
+	   escolhida aleatoriamente, com um dos numeros 2 ou 4, de acordo com 
+	   as probabilidades ja indicadas.'''
+	
