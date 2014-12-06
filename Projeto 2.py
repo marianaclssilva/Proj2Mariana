@@ -80,7 +80,7 @@ def tabuleiro_posicao(t,c): # Seletor	    #Bruno
 	if c == ():
 		return 0
 	elif e_coordenada(c) == False:
-		return ValueError('tabuleiro_posicao: argumentos invalidos')
+		raise ValueError('tabuleiro_posicao: argumentos invalidos')
 	else: 
 		return t[c]
 	
@@ -262,7 +262,8 @@ def escreve_tabuleiro(t): # Transformador de saida     #Bruno
 		print ('[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']', '[',t[(4,4)],']') 
 		print ('pontuacao:', t['pontuacao'])
 		
-	raise ValueError('escreve_tabuleiro: argumentos invalidos')	
+	else:
+		raise ValueError('escreve_tabuleiro: argumentos invalidos')	
 	
 		
 def pede_jogada(): # Teste
