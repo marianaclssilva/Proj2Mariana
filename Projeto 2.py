@@ -228,8 +228,10 @@ def e_tabuleiro(t_verif): # Reconhecedor     #Mariana
 	   Recebe um unico argumento. 
 	   Devolve True se o argumento for do tipo tabuleiro e False em 
 	   caso contrario.'''
-	
-	return isinstance (t_verif,dict) and len(t_verif) == 17  # esta errado
+	for i in t_verif:
+		if not e_coordenada(i):
+			return False
+	return isinstance (t_verif,dict) and len(t_verif) == 17 
 	
 def tabuleiro_terminado(t): # Reconhecedor    #Fransciso
 	'''Funcao tabuleiro_terminado: dict -> bool
@@ -251,12 +253,15 @@ def escreve_tabuleiro(t): # Transformador de saida     #Bruno
 	   Recebe como argumento um elemento 't' do tipo tabuleiro.
            Escreve para o ecra a representacao externa de um tabuleiro de 2048.
 	   Se os argumentos nao forem validos gera um ValueError.'''
-	
+	if e_tabuleiro(t) == False:
+		raise ValueError('escreve_tabuleiro: argumentos invalidos')
 	print ('[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']','[', t[(1,4)] ,']')
 	print ('[', t[(2,1)],']','[',t[(2,2)],']','[', t[(2,3)],']','[', t[(2,4)],']')
 	print ('[',t[(3,1)],']','[',t[(3,2)],']','[', t[(3,3)], ']','[',t[(3,4)],']')
 	print ('[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']', '[',t[(4,4)],']') 
 	print ('pontuacao:', t['pontuacao'])
+	
+	
 		
 def pede_jogada(): # Teste
 	'''Funcao pede_jogada: {} -> string
