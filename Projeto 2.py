@@ -114,8 +114,7 @@ def tabuleiro_preenche_posicao(t,c,v): #Mariana
 	   gera um ValueError.'''
 	
 	if e_coordenada(c) == True and isinstance (v,int):
-		t[c] = v	
-		return t
+		t[c] = v
 			
 	else:
 		raise ValueError('tabuleiro_preenche_posicao: argumentos\
@@ -150,29 +149,41 @@ def tabuleiro_reduz(t,d): #Fransciso
 	   Devolve o tabuleiro 't' modificado, incluindo a atualizacao da
 	   pontuacao. Se os argumentos nao forem validos gera um ValueError.'''
 
-	   tecla = {'N': (-1,0), 'S': (1,0), 'W': (0, -1), 'E': (0,1)}
-	   cc_direcao = tecla[d]
-	   cc_direcao_x = coordenada_linha(cc)
-	   cc_direcao_y = coordenada_coluna(cc)
-	   for linha in range(4):
-	   		for coluna in range(4):
-	   			linha_original = linha
-	   			coluna_original = coluna
-	   			coordenada_original = cria_coordenada(linha, coluna)
-	   			valor_original = tabuleiro_posicao(t,coordenada_original)
-
-	   			while True:
-	   				coordenada = cria_coordenada(linha,coluna)
-	   				if not e_coordenada(coordenada):
-	   					linha -= cc_direcao_x
-	   					coluna -= cc_direcao_y
-	   					coordenada = cria_coordenada(linha,coluna)
-	   					tabuleiro_preenche_posicao = (t, coordenada, valor_original)
-	   					break
-
-
-	   				linha += cc_direcao_x
-	   				coluna += cc_direcao_y
+	tecla = {'N': (-1,0), 'S': (1,0), 'W': (0, -1), 'E': (0,1)}
+	cc_direcao = tecla[d]
+	cc_direcao_x = coordenada_linha(cc_direcao)
+	cc_direcao_y = coordenada_coluna(cc_direcao)
+	for linha in range(1,5,1):
+		for coluna in range(1,5,1):
+			linha_original = linha
+			coluna_original = coluna
+			coordenada_original = cria_coordenada(linha_original, coluna_original)
+			valor_original = tabuleiro_posicao(t,coordenada_original)
+			
+			while True:
+				coordenada_atual = cria_coordenada(linha, coluna)
+				linha += cc_direcao_x
+				coluna += cc_direcao_y
+				try:
+					coordenada = cria_coordenada(linha,coluna)
+				except:
+					linha = linha_original
+					coluna = coluna_original
+					break
+				if not e_coordenada(coordenada):
+					tabuleiro_preenche_posicao(t, coordenada)
+					break
+				elif coordenada not in tabuleiro_posicoes_vazias(t):
+					valor = tabuleiro_posicao(t, coordenada)
+					if valor == valor_original:
+						valor += valor
+						tabuleiro_preenche_posicao(t, coordenada, valor)
+						tabuleiro_preenche_posicao(t, coordenada_atual, 0)
+						break
+					else:
+						break
+				tabuleiro_preenche_posicao(t,coordenada, valor_original)
+				tabuleiro_preenche_posicao(t, coordenada_atual, 0)
 
 
 
