@@ -100,9 +100,9 @@ def tabuleiro_posicoes_vazias(t): # Seletor     #Mariana
 	vazio =  []
 	for l in range(1,5,1):
 		for c in range(1,5,1):
-			cc = cria_cordenada(l,c)
+			cc = cria_coordenada(l,c)
 			if t[cc] == 0:
-				vazio += [t[cc], ]
+				vazio += [cc, ]
 	return vazio
 
 	
