@@ -327,6 +327,29 @@ def jogo_2048(): # Teste
 	   indicacao "Jogada invalida." e solicita uma nova jogada ao 
 	   utilizador.'''
 
+	def copia_tabuleiro(t):
+		t_copia = t
+		return t_copia
+	def preenche_posicao_aleatoria(t):
+		def gera_2_4(): 
+			num=random()
+			if num<=0.8: # se a probabilidade de o numero gerado 
+				return 2 # for igual a 0.8 devolve 2
+			else:
+				return 4 # tabuleiro inicial com o numero (2/4)
+			t = cria_tabuleiro()
+			n_default = gera_2_4() 
+			cord = choice(tabuleiro_posicoes_vazias(t))
+			res = tabuleiro_preenche_posicao(t,cord,n_default)
+			return res
+		set_default = cria_tabuleiro() # escreve um tabuleiro
+		board = preenche_posicao_aleatoria(set_default) # que ja tem um numero aleatorio
+		update = escreve_tabuleiro(board)
+		# enquanto nao se verificar as condicoes da funcao tabuleiro_terminado...
+		while not tabuleiro_terminado(set_default): 
+			board = tabuleiro_reduz(board,pede_jogada())
+			escreve_tabuleiro(board)
+
 #def copia_tabuleiro(t):
 	'''Funcao copia_tabuleiro: dict -> dict
 	   Recebe como argumento um elemento do tipo tabuleiro.
