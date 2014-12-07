@@ -4,7 +4,8 @@
 # Franscisco Santos - 82009
 
 # Funcoes TAD coordenada
-def cria_coordenada(l,c): # Construtor
+
+def cria_coordenada(l,c): # Construtor     #DONE (rever comentarios)
 	'''Funcao cria_coordenada: int x int -> tuple
 	   Recebe dois argumentos do tipo inteiro, o primeiro corresponde a uma 
 	   linha l (inteiro entre 1 e 4) e o segundo a uma coluna c (inteiro 
@@ -12,60 +13,71 @@ def cria_coordenada(l,c): # Construtor
            Devolve um elemento do tipo coordenada correspondente a posicao 
 	   (l, c). Se os argumentos nao forem validos gera um ValueError.'''
 
-	if 1 <= l <= 4 and 1 <= c <= 4:  
-		return (l,c)
-	
+	if 1 <= l <= 4 and 1 <= c <= 4:  # Definimos os argumentos do tipo 
+		return (l,c)		 # coordenada como sendo um tuplo com
+	                                 # apenas dois elementos e esses 
+			                 # elementos tem de ser >= 1 e <= 4.		
 	else:
 		raise ValueError('cria_coordenada: argumentos invalidos')
 	
-def coordenada_linha(coordenada): # Seletor
+	
+def coordenada_linha(coordenada): # Seletor    #DONE
 	'''Funcao coordenada_linha: tuple -> int  
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a linha respetiva.'''
 	
 	return (coordenada[0])
 	
-def coordenada_coluna(coordenada): # Seletor
+		
+def coordenada_coluna(coordenada): # Seletor    #DONE
 	'''Funcao coordenada_coluna: tuple -> int 
 	   Recebe um elemento do tipo coordenada. 
 	   Devolve a coluna respetiva.'''
 	
 	return (coordenada[1])
 	
-def e_coordenada(coord_verif): # Reconhecedor
+	
+def e_coordenada(coord_verif): # Reconhecedor	#DONE (rever o comentario)
 	'''Funcao e_coordenada: universal -> bool
 	   Recebe um unico argumento.
 	   Devolve True caso esse argumento seja do tipo coordenada e False 
 	   em caso contrario.'''
-	# Para um argumento ser considrado uma coordenada tem de ser um tuplo 
-	# com apenas dois elementos e esses elementos tem de (incompleto...)
+	
+	# Para um argumento ser considerado uma coordenada tem de ser um tuplo 
+	# com apenas dois elementos (l,c) e esses elementos tem de ser >= 1 
+	# e <= 4.
 	return isinstance (coord_verif,tuple) and len(coord_verif) == 2 and \
 	       1 <= coordenada_linha(coord_verif) <= 4 and \
 	       1 <= coordenada_coluna(coord_verif) <= 4
 
-		
-def coordenadas_iguais(coord1,coord2): # Teste
+
+def coordenadas_iguais(coord1,coord2): # Teste    #DONE  
 	'''Funcao coordenadas_iguais: tuple x tuple -> bool 
 	   Recebe como argumentos dois elementos do tipo coordenada. 
-	   Devolve True, caso esses argumentos correspondam a mesma 
-	   posicao (l, c) do tabuleiro, e False em caso contrario.'''
+	   Devolve True caso esses argumentos correspondam a mesma 
+	   posicao (l, c) do tabuleiro e False em caso contrario.'''
 	
 	return coord1[0] == coord2[0] and coord1[1] == coord2[1]
 
+
 # Funcoes TAD tabuleiro	
-def cria_tabuleiro(): # Construtor	#Bruno	
+
+def cria_tabuleiro(): # Construtor	#DONE (rever o comentario)
 	'''Funcao cria_tabuleiro: {} -> dict
 	   Nao recebe qualquer argumento.
 	   Devolve um elemento do tipo tabuleiro de acordo com a representacao
 	   interna escolhida.'''
 	
 	# A representacao interna escolhida para um elemento do tipo 'tabuleiro' 
-	# foi um dicionario com 17 entradas, que contem as coordenadas e a 
-	# pontuacao. As chaves sao as coordenadas(l,c)... e o valor de cada chave 
-	# e 0(incompleto...)
+	# foi um dicionario com 17 entradas. Em que as 16 primeiras chaves sao 
+	# sao coordenada (l,c) e a ultima chave corresponde a pontuacao.
+	# O valor de cada chave, incluindo da pontuacao, e 0, pois o tabuleiro 
+	# devera vir vazio.
+	
 	tabuleiro = {(1,1): 0, (1,2): 0, (1,3): 0, (1,4): 0, (2,1):0, (2,2):0,
 	             (2,3): 0, (2,4): 0, (3,1): 0, (3,2): 0, (3,3):0, (3,4):0, 
 	             (4,1): 0, (4,2): 0, (4,3): 0, (4,4): 0, 'pontuacao': 0}
+	
 	return tabuleiro
 		
 def tabuleiro_posicao(t,c): # Seletor	    #Bruno
@@ -85,11 +97,13 @@ def tabuleiro_posicao(t,c): # Seletor	    #Bruno
 		return t[c]
 	
 	
-def tabuleiro_pontuacao(t): # Seletor	    #Bruno
+def tabuleiro_pontuacao(t): # Seletor	    #DONE (rever comentario)
 	'''Funcao tabuleiro_pontuacao: dict -> inteiro 
 	   Recebe como argumento um elemento 't' do tipo tabuleiro.
 	   Devolve a pontuacao atual para o tabuleiro 't'.'''
-	return t['pontuacao']
+	
+	return t['pontuacao'] # Vai devolver a ultima chave do tabuleiro, 
+                              # que e a correspondente a pontuacao.
 	
 	
 def tabuleiro_posicoes_vazias(t): # Seletor     #Mariana
@@ -97,6 +111,7 @@ def tabuleiro_posicoes_vazias(t): # Seletor     #Mariana
 	   Recebe como argumento um elemento 't' do tipo tabuleiro.
 	   Devolve uma lista contendo as coordenadas de todas as posicoes 
 	   vazias do tabuleiro 't'.'''
+	
 	vazio =  []
 	for l in range(1,5,1):
 		for c in range(1,5,1):
@@ -140,6 +155,7 @@ def tabuleiro_actualiza_pontuacao(t,v): # Modificador   #Mariana
 	else:
 		raise ValueError('tabuleiro_actualiza_pontuacao: argumentos\
  invalidos')	
+	
 	
 # Estamos a considerar a coordenada (0,0) como sendo o ponto mais esquerda e em cima do tabuleiro
 def tabuleiro_reduz(t,d): # Modificador     #Fransciso
@@ -233,6 +249,7 @@ def e_tabuleiro(t_verif): # Reconhecedor     #Mariana
 			return False
 	return isinstance (t_verif,dict) and len(t_verif) == 17 
 	
+	
 def tabuleiro_terminado(t): # Reconhecedor    #Fransciso
 	'''Funcao tabuleiro_terminado: dict -> bool
 	   Recebe como argumento um elemento 't' do tipo tabuleiro. 
@@ -247,14 +264,16 @@ def tabuleiro_terminado(t): # Reconhecedor    #Fransciso
 		return False	
 	
 	
-def tabuleiros_iguais(t1,t2): # Teste    #Fransciso
+def tabuleiros_iguais(t1,t2): # Teste    #DONE
 	'''Funcao tabuleiros_iguais: dict x dict -> bool
 	   Recebe como argumentos dois elementos 't1' e 't2' do tipo tabuleiro.
 	   Devolve True caso 't1' e 't2' correspondam a dois tabuleiros com a 
 	   mesma configuracao e pontuacao, e False em caso contrario.'''
+	
 	return t1 == t2
 	
-def escreve_tabuleiro(t): # Transformador de saida     #Bruno
+	
+def escreve_tabuleiro(t): # Transformador de saida     #DONE
 	'''Funcao escreve_tabuleiro: dict -> {}
 	   Recebe como argumento um elemento 't' do tipo tabuleiro.
            Escreve para o ecra a representacao externa de um tabuleiro de 2048.
@@ -262,21 +281,25 @@ def escreve_tabuleiro(t): # Transformador de saida     #Bruno
 	
 	if e_tabuleiro(t) == True:
 	
-		print ('[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']','[', t[(1,4)] ,'] ')
-		print ('[', t[(2,1)],']','[',t[(2,2)],']','[', t[(2,3)],']','[', t[(2,4)],'] ')
-		print ('[',t[(3,1)],']','[',t[(3,2)],']','[', t[(3,3)], ']','[',t[(3,4)],'] ')
-		print ('[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']', '[',t[(4,4)],'] ') 
+		print ('[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']',\
+		       '[', t[(1,4)] ,'] ')
+		print ('[', t[(2,1)],']','[',t[(2,2)],']','[', t[(2,3)],']',\
+		       '[', t[(2,4)],'] ')
+		print ('[',t[(3,1)],']','[',t[(3,2)],']','[', t[(3,3)], ']',\
+		       '[',t[(3,4)],'] ')
+		print ('[', t[(4,1)],']','[', t[(4,2)],']','[', t[(4,3)],']',\
+		       '[',t[(4,4)],'] ') 
 		print ('Pontuacao:', t['pontuacao'])
 		
 	else:
 		raise ValueError('escreve_tabuleiro: argumentos invalidos')	
 	
 		
-def pede_jogada(): # Teste
-	'''Funcao pede_jogada: {} -> string
-	   Nao recebe qualquer argumento, limitando-se a pedir ao utilizador 
-	   para introduzir uma direcao (N, S, E ou W) e se o valor introduzido 
-	   for invalido a funcao pede novamente a informacao de jogada ao 
+def pede_jogada(): # Teste    #DONE
+	'''Funcao pede_jogada: {} -> str
+	   Nao recebe qualquer argumento. Limita-se a pedir ao utilizador para 
+	   introduzir uma direcao (N, S, E ou W), se o valor introduzido for
+	   invalido a funcao pede novamente a informacao de jogada ao 
 	   utilizador. 
 	   Devolve uma cadeia de caracteres correspondente a direcao escolhida 
 	   pelo utilizador.'''
