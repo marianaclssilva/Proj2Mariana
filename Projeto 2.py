@@ -331,7 +331,7 @@ def jogo_2048(): # Teste
 	   utilizador.'''
 	
 	t = cria_tabuleiro() # escreve um tabuleiro
-	t = preenche_posicao_aleatoria() # que ja tem um numero aleatorio
+	t = preenche_posicao_aleatoria(t) # que ja tem um numero aleatorio
 	escreve_tabuleiro(t)
 	# enquanto nao se verificar as condicoes da funcao tabuleiro_terminado...
 	while tabuleiro_terminado(t) == False:
