@@ -355,39 +355,7 @@ def preenche_posicao_aleatoria(t):
 		res = tabuleiro_preenche_posicao(t,cord,n_default)
 		return t
 	
-def jogo_2048(): # Teste
-	'''Funcao jogo_2048: {} -> {} 
-	   Nao recebe qualquer argumento e permite ao utilizador jogar um jogo 
-	   completo de 2048. Em cada turno, a funcao escreve o tabuleiro no 
-	   ecra e pede ao utilizador para introduzir uma nova jogada. 
-	   Caso a jogada seja valida, atualiza o tabuleiro e repete este 
-	   processo ate o jogo terminar. Caso contrario, escreve para o ecra a 
-	   indicacao "Jogada invalida." e solicita uma nova jogada ao 
-	   utilizador.'''
-	
-	t = cria_tabuleiro() # escreve um tabuleiro
-	t = preenche_posicao_aleatoria(t) # que ja tem um numero aleatorio
-	escreve_tabuleiro(t)
-	# enquanto nao se verificar as condicoes da funcao tabuleiro_terminado...
-	while tabuleiro_terminado(t) == False:
-		jogada = pede_jogada()
-		t = tabuleiro_reduz(t,jogada)
-		escreve_tabuleiro(t)
 
-
-def preenche_posicao_aleatoria(t):
-		def gera_2_4():
-				num=random()
-				if num<=0.8: # se a probabilidade de o numero gerado
-					return 2 # for igual a 0.8 devolve 2
-				else:
-					return 4 
-	
-		n_default = gera_2_4()
-		cord = choice(tabuleiro_posicoes_vazias(t))
-		res = tabuleiro_preenche_posicao(t,cord,n_default)
-		return t
-	
 def copia_tabuleiro(t):
 	t_copia = dict(t)
 	return t_copia	
