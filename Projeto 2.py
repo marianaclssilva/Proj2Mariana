@@ -368,15 +368,3 @@ def preenche_posicao_aleatoria(t):
 	res = tabuleiro_preenche_posicao(t,cord,n_default) 
 	
 	return t 
-	
-
-def copia_tabuleiro(t):
-	'''Funcao copia_tabuleiro: dict -> dict
-	   Recebe como argumento um elemento do tipo tabuleiro.
-	   Devolve uma copia do mesmo.'''	
-	
-	t_copia = dict(t)
-	t_copia = cria_tabuleiro()
-	return escreve_tabuleiro(t_copia)	
-
-
