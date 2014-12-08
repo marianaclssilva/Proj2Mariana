@@ -349,15 +349,21 @@ def preenche_posicao_aleatoria(t):
 	
 	def gera_2_4():
 			numero = random()
-			if numero <= 0.8: # se a probabilidade de o numero gerado
-				return 2 # for igual a 0.8 devolve 2
-			else:
-				return 4 
+			if numero <= 0.8:  # A probabilidade de o numero gerado 
+				return 2   # ser 2 e de 0.8.
+				
+			else:              # A probabilidade de o numero gerado 
+				return 4   # ser 4 e de 0.2.
+				 
 	
-	n_default = gera_2_4()		
-	cord = choice(tabuleiro_posicoes_vazias(t))
-	res = tabuleiro_preenche_posicao(t,cord,n_default)
-	return t
+	n_default = gera_2_4()	
+	# Escolher aleatoriamente uma coordenada que tenha valor 0.
+	coord = choice(tabuleiro_posicoes_vazias(t)) 
+	# Atribuir o valor 2 ou 4 (gerado aleatoriamente pela funcao gera_2_4) 
+	# a coord escolhida, preenchendo a posicao correspondente no tabuleiro.
+	res = tabuleiro_preenche_posicao(t,cord,n_default) 
+	
+	return t 
 	
 
 def copia_tabuleiro(t):
@@ -366,6 +372,7 @@ def copia_tabuleiro(t):
 	   Devolve uma copia do mesmo.'''	
 	
 	t_copia = dict(t)
-	return t_copia	
+	t_copia = cria_tabuleiro()
+	return escreve_tabuleiro(t_copia)	
 
 
