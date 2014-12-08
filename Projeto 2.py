@@ -5,6 +5,8 @@
 
 # Funcoes TAD coordenada
 
+from random import *
+
 def cria_coordenada(l,c): # Construtor     #DONE (rever comentarios)
 	'''Funcao cria_coordenada: int x int -> tuple
 	   Recebe dois argumentos do tipo inteiro, o primeiro corresponde a uma 
@@ -326,15 +328,35 @@ def jogo_2048(): # Teste
 	   processo ate o jogo terminar. Caso contrario, escreve para o ecra a 
 	   indicacao "Jogada invalida." e solicita uma nova jogada ao 
 	   utilizador.'''
+	
+	t = cria_tabuleiro() # escreve um tabuleiro
+	t = preenche_posicao_aleatoria(t) # que ja tem um numero aleatorio
+	escreve_tabuleiro(t)
+	# enquanto nao se verificar as condicoes da funcao tabuleiro_terminado...
+	while tabuleiro_terminado(t) == False:
+		jogada = pede_jogada()
+		t = tabuleiro_reduz(t,jogada)
+		escreve_tabuleiro(t)
+		t = preenche_posicao_aleatoria(t)
 
-#def copia_tabuleiro(t):
+
+def preenche_posicao_aleatoria(t):
+	
+		def gera_2_4():
+				num=random()
+				if num<=0.8: # se a probabilidade de o numero gerado
+					return 2 # for igual a 0.8 devolve 2
+				else:
+					return 4 
+	
+		n_default = gera_2_4()
+		cord = choice(tabuleiro_posicoes_vazias(t))
+		res = tabuleiro_preenche_posicao(t,cord,n_default)
+		return t
+	
+def copia_tabuleiro(t):
 	'''Funcao copia_tabuleiro: dict -> dict
-	   Recebe como argumento um elemento do tipo tabuleiro.
-	   Devolve uma copia do mesmo'''
-#	return t
-
-#def preenche_posicao_aleatoria(t):
-	'''Funcao preenche_posicao_aleatoria: dict -> dict
-	   Recebe um elemento do tipo tabuleiro e preenche uma posicao livre, 
-	   escolhida aleatoriamente, com um dos numeros 2 ou 4, de acordo com 
-	   as probabilidades ja indicadas.'''
+		   Recebe como argumento um elemento do tipo tabuleiro.
+		   Devolve uma copia do mesmo'''	
+	t_copia = dict(t)
+	return t_copia
