@@ -175,43 +175,81 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 	cc_direcao = tecla[d]
 	cc_direcao_x = coordenada_linha(cc_direcao)
 	cc_direcao_y = coordenada_coluna(cc_direcao)
-	for linha in range(1,5,1):
-		for coluna in range(1,5,1):
-			linha_original = linha
-			coluna_original = coluna
-			coordenada_original = cria_coordenada(linha_original, coluna_original)
-			
-			
-			while True:
-				coordenada_atual = cria_coordenada(linha, coluna)
-				valor_original = tabuleiro_posicao(t,coordenada_atual)
-				linha_alterada = linha + cc_direcao_x
-				coluna_alterada = coluna + cc_direcao_y
-				try:
-					coordenada = cria_coordenada(linha_alterada,coluna_alterada)
-				except:
-					escreve_tabuleiro(t)#
-					break
-				if valor_original == 0:
-					escreve_tabuleiro(t)#
-					break
-				elif coordenada not in tabuleiro_posicoes_vazias(t):
-					valor = tabuleiro_posicao(t, coordenada)
-					if valor == valor_original:
-						valor += valor
-						tabuleiro_preenche_posicao(t, coordenada, valor)
-						tabuleiro_actualiza_pontuacao(t,valor)
-						tabuleiro_preenche_posicao(t, coordenada_atual, 0)
+	if d == 'S' or d == 'E':
+		for linha in range(1,5,1):
+			for coluna in range(1,5,1):
+				linha_original = linha
+				coluna_original = coluna
+				coordenada_original = cria_coordenada(linha_original, coluna_original)
+				valor_original = tabuleiro_posicao(t,  coordenada_original)
+				
+				
+				while True:
+					coordenada_atual = cria_coordenada(linha, coluna)
+					valor_atual = tabuleiro_posicao(t,coordenada_atual)
+					linha_alterada = linha + cc_direcao_x
+					coluna_alterada = coluna + cc_direcao_y
+					try:
+						coordenada = cria_coordenada(linha_alterada,coluna_alterada)
+					except:
 						escreve_tabuleiro(t)#
 						break
-					else:
+					if valor_original == 0:
 						escreve_tabuleiro(t)#
 						break
-				tabuleiro_preenche_posicao(t,coordenada, valor_original)
-				tabuleiro_preenche_posicao(t, coordenada_atual, 0)
-				escreve_tabuleiro(t)#
+					elif coordenada not in tabuleiro_posicoes_vazias(t):
+						valor = tabuleiro_posicao(t, coordenada)
+						if valor == valor_atual:
+							valor += valor
+							tabuleiro_preenche_posicao(t, coordenada, valor)
+							tabuleiro_actualiza_pontuacao(t,valor)
+							tabuleiro_preenche_posicao(t, coordenada_atual, 0)
+							escreve_tabuleiro(t)#
+							break
+						else:
+							escreve_tabuleiro(t)#
+							break
+					tabuleiro_preenche_posicao(t,coordenada, valor_atual)
+					tabuleiro_preenche_posicao(t, coordenada_atual, 0)
+					escreve_tabuleiro(t)#
 			
-			
+	elif d == 'N' or d == 'W':
+		for linha in range(4,0,-1):
+			for coluna in range(4,0,-1):
+				linha_original = linha
+				coluna_original = coluna
+				coordenada_original = cria_coordenada(linha_original, coluna_original)
+				valor_original = tabuleiro_posicao(t,  coordenada_original)
+				
+				
+				while True:
+					coordenada_atual = cria_coordenada(linha, coluna)
+					valor_atual = tabuleiro_posicao(t,coordenada_atual)
+					linha_alterada = linha + cc_direcao_x
+					coluna_alterada = coluna + cc_direcao_y
+					try:
+						coordenada = cria_coordenada(linha_alterada,coluna_alterada)
+					except:
+						escreve_tabuleiro(t)#
+						break
+					if valor_original == 0:
+						escreve_tabuleiro(t)#
+						break
+					elif coordenada not in tabuleiro_posicoes_vazias(t):
+						valor = tabuleiro_posicao(t, coordenada)
+						if valor == valor_atual:
+							valor += valor
+							tabuleiro_preenche_posicao(t, coordenada, valor)
+							tabuleiro_actualiza_pontuacao(t,valor)
+							tabuleiro_preenche_posicao(t, coordenada_atual, 0)
+							escreve_tabuleiro(t)#
+							break
+						else:
+							escreve_tabuleiro(t)#
+							break
+					tabuleiro_preenche_posicao(t,coordenada, valor_atual)
+					tabuleiro_preenche_posicao(t, coordenada_atual, 0)
+					escreve_tabuleiro(t)#		
 	return t
 	
 		
@@ -228,16 +266,20 @@ def e_tabuleiro(t_verif): # Reconhecedor     #Mariana
 	return isinstance (t_verif,dict) and len(t_verif) == 17 
 	
 	
-def tabuleiro_terminado(t): # Reconhecedor    #Fransciso
+def tabuleiro_terminado(t): # Reconhecedor    # DONE
 	'''Funcao tabuleiro_terminado: dict -> bool
 	   Recebe como argumento um elemento 't' do tipo tabuleiro. 
 	   Devolve True caso o tabuleiro 't' esteja terminado, ou seja, caso 
 	   esteja cheio e nao existam movimentos possiveis, e False em caso 
 	   contrario.'''
 	
-	direcao = ['N','S','W','E']
+	direcao = ['N','S','W','E'] # Direcoes possiveis
+	
 	for d in direcao:
-		if not tabuleiro_reduz(t,d)and not tabuleiro_posicoes_vazias(t):
+		# Se ja nao for possivel reduzir o tabuleiro em nenhuma das 
+		# direcoes e se ja nao houver nenhuma posicao com o valor 0, 
+		# entao o tabuleiro esta completo.
+		if not tabuleiro_posicoes_vazias(t):
 			return True
 		return False	
 	
@@ -257,7 +299,7 @@ def escreve_tabuleiro(t): # Transformador de saida     #DONE
            Escreve para o ecra a representacao externa de um tabuleiro de 2048.
 	   Se os argumentos nao forem validos gera um ValueError.'''
 	
-	if e_tabuleiro(t) == True:
+	if e_tabuleiro(t) == True: 
 	
 		print ('[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']',\
 		       '[', t[(1,4)] ,'] ')
@@ -314,24 +356,28 @@ def jogo_2048(): # Teste
 		t = tabuleiro_reduz(t,jogada)
 		t = preenche_posicao_aleatoria(t)
 		escreve_tabuleiro(t)
-		
-
 
 def preenche_posicao_aleatoria(t):
-		def gera_2_4():
-				num=random()
-				if num<=0.8: # se a probabilidade de o numero gerado
-					return 2 # for igual a 0.8 devolve 2
-				else:
-					return 4 
+	'''Funcao preenche_posicao_aleatoria: dict -> dict
+	   Recebe um elemento do tipo tabuleiro e preenche uma posicao livre, 
+	   escolhida aleatoriamente, com um dos numeros 2 ou 4, de acordo com 
+	   as probabilidades.'''	
 	
-		n_default = gera_2_4()
-		cord = choice(tabuleiro_posicoes_vazias(t))
-		tabuleiro_preenche_posicao(t,cord,n_default)
-		return t
+	def gera_2_4():
+			numero = random()
+			if numero <= 0.8:  # A probabilidade de o numero gerado 
+				return 2   # ser 2 e de 0.8.
+				
+			else:              # A probabilidade de o numero gerado 
+				return 4   # ser 4 e de 0.2.
+				 
 	
-def copia_tabuleiro(t):
-	t_copia = dict(t)
-	return t_copia	
-
+	n_default = gera_2_4()	
+	# Escolher aleatoriamente uma coordenada que tenha valor 0.
+	coord = choice(tabuleiro_posicoes_vazias(t)) 
+	# Atribuir o valor 2 ou 4 (gerado aleatoriamente pela funcao gera_2_4) 
+	# a coord escolhida, preenchendo a posicao correspondente no tabuleiro.
+	tabuleiro_preenche_posicao(t,coord,n_default) 
+	
+	return t 
 
