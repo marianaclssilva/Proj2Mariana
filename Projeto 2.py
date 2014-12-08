@@ -342,21 +342,29 @@ def jogo_2048(): # Teste
 
 
 def preenche_posicao_aleatoria(t):
+	'''Funcao preenche_posicao_aleatoria: dict -> dict
+	   Recebe um elemento do tipo tabuleiro e preenche uma posicao livre, 
+	   escolhida aleatoriamente, com um dos numeros 2 ou 4, de acordo com 
+	   as probabilidades.'''	
 	
-		def gera_2_4():
-				num=random()
-				if num<=0.8: # se a probabilidade de o numero gerado
-					return 2 # for igual a 0.8 devolve 2
-				else:
-					return 4 
+	def gera_2_4():
+			numero = random()
+			if numero <= 0.8: # se a probabilidade de o numero gerado
+				return 2 # for igual a 0.8 devolve 2
+			else:
+				return 4 
 	
-		n_default = gera_2_4()
-		cord = choice(tabuleiro_posicoes_vazias(t))
-		res = tabuleiro_preenche_posicao(t,cord,n_default)
-		return t
+	n_default = gera_2_4()		
+	cord = choice(tabuleiro_posicoes_vazias(t))
+	res = tabuleiro_preenche_posicao(t,cord,n_default)
+	return t
 	
 
 def copia_tabuleiro(t):
+	'''Funcao copia_tabuleiro: dict -> dict
+	   Recebe como argumento um elemento do tipo tabuleiro.
+	   Devolve uma copia do mesmo.'''	
+	
 	t_copia = dict(t)
 	return t_copia	
 
