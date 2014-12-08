@@ -180,19 +180,20 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 			linha_original = linha
 			coluna_original = coluna
 			coordenada_original = cria_coordenada(linha_original, coluna_original)
-			valor_original = tabuleiro_posicao(t,coordenada_original)
+			
 			
 			while True:
 				coordenada_atual = cria_coordenada(linha, coluna)
-				linha += cc_direcao_x
-				coluna += cc_direcao_y
+				valor_original = tabuleiro_posicao(t,coordenada_atual)
+				linha_alterada = linha + cc_direcao_x
+				coluna_alterada = coluna + cc_direcao_y
 				try:
-					coordenada = cria_coordenada(linha,coluna)
+					coordenada = cria_coordenada(linha_alterada,coluna_alterada)
 				except:
-					linha = linha_original
-					coluna = coluna_original
+					escreve_tabuleiro(t)#
 					break
 				if valor_original == 0:
+					escreve_tabuleiro(t)#
 					break
 				elif coordenada not in tabuleiro_posicoes_vazias(t):
 					valor = tabuleiro_posicao(t, coordenada)
@@ -201,42 +202,16 @@ def tabuleiro_reduz(t,d): # Modificador     #Fransciso
 						tabuleiro_preenche_posicao(t, coordenada, valor)
 						tabuleiro_actualiza_pontuacao(t,valor)
 						tabuleiro_preenche_posicao(t, coordenada_atual, 0)
+						escreve_tabuleiro(t)#
 						break
 					else:
+						escreve_tabuleiro(t)#
 						break
 				tabuleiro_preenche_posicao(t,coordenada, valor_original)
 				tabuleiro_preenche_posicao(t, coordenada_atual, 0)
-	for coluna in range(1,5,1):
-		for linha in range(1,5,1):
-			linha_original = linha
-			coluna_original = coluna
-			coordenada_original = cria_coordenada(linha_original, coluna_original)
-			valor_original = tabuleiro_posicao(t,coordenada_original)
+				escreve_tabuleiro(t)#
 			
-			while True:
-				coordenada_atual = cria_coordenada(linha, coluna)
-				linha += cc_direcao_x
-				coluna += cc_direcao_y
-				try:
-					coordenada = cria_coordenada(linha,coluna)
-				except:
-					linha = linha_original
-					coluna = coluna_original
-					break
-				if valor_original == 0:
-					break
-				elif coordenada not in tabuleiro_posicoes_vazias(t):
-					valor = tabuleiro_posicao(t, coordenada)
-					if valor == valor_original:
-						valor += valor
-						tabuleiro_preenche_posicao(t, coordenada, valor)
-						tabuleiro_actualiza_pontuacao(t,valor)
-						tabuleiro_preenche_posicao(t, coordenada_atual, 0)
-						break
-					else:
-						break
-				tabuleiro_preenche_posicao(t,coordenada, valor_original)
-				tabuleiro_preenche_posicao(t, coordenada_atual, 0)
+			
 	return t
 	
 		
@@ -337,42 +312,9 @@ def jogo_2048(): # Teste
 	while tabuleiro_terminado(t) == False:
 		jogada = pede_jogada()
 		t = tabuleiro_reduz(t,jogada)
-		escreve_tabuleiro(t)
 		t = preenche_posicao_aleatoria(t)
-
-
-def preenche_posicao_aleatoria(t):
-	
-		def gera_2_4():
-				num=random()
-				if num<=0.8: # se a probabilidade de o numero gerado
-					return 2 # for igual a 0.8 devolve 2
-				else:
-					return 4 
-	
-		n_default = gera_2_4()
-		cord = choice(tabuleiro_posicoes_vazias(t))
-		res = tabuleiro_preenche_posicao(t,cord,n_default)
-		return t
-	
-def jogo_2048(): # Teste
-	'''Funcao jogo_2048: {} -> {} 
-	   Nao recebe qualquer argumento e permite ao utilizador jogar um jogo 
-	   completo de 2048. Em cada turno, a funcao escreve o tabuleiro no 
-	   ecra e pede ao utilizador para introduzir uma nova jogada. 
-	   Caso a jogada seja valida, atualiza o tabuleiro e repete este 
-	   processo ate o jogo terminar. Caso contrario, escreve para o ecra a 
-	   indicacao "Jogada invalida." e solicita uma nova jogada ao 
-	   utilizador.'''
-	
-	t = cria_tabuleiro() # escreve um tabuleiro
-	t = preenche_posicao_aleatoria(t) # que ja tem um numero aleatorio
-	escreve_tabuleiro(t)
-	# enquanto nao se verificar as condicoes da funcao tabuleiro_terminado...
-	while tabuleiro_terminado(t) == False:
-		jogada = pede_jogada()
-		t = tabuleiro_reduz(t,jogada)
 		escreve_tabuleiro(t)
+		
 
 
 def preenche_posicao_aleatoria(t):
@@ -385,7 +327,7 @@ def preenche_posicao_aleatoria(t):
 	
 		n_default = gera_2_4()
 		cord = choice(tabuleiro_posicoes_vazias(t))
-		res = tabuleiro_preenche_posicao(t,cord,n_default)
+		tabuleiro_preenche_posicao(t,cord,n_default)
 		return t
 	
 def copia_tabuleiro(t):
