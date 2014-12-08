@@ -253,16 +253,20 @@ def e_tabuleiro(t_verif): # Reconhecedor     #Mariana
 	return isinstance (t_verif,dict) and len(t_verif) == 17 
 	
 	
-def tabuleiro_terminado(t): # Reconhecedor    #Fransciso
+def tabuleiro_terminado(t): # Reconhecedor    # DONE
 	'''Funcao tabuleiro_terminado: dict -> bool
 	   Recebe como argumento um elemento 't' do tipo tabuleiro. 
 	   Devolve True caso o tabuleiro 't' esteja terminado, ou seja, caso 
 	   esteja cheio e nao existam movimentos possiveis, e False em caso 
 	   contrario.'''
 	
-	direcao = ['N','S','W','E']
+	direcao = ['N','S','W','E'] # Direcoes possiveis
+	
 	for d in direcao:
-		if not tabuleiro_reduz(t,d)and not tabuleiro_posicoes_vazias(t):
+		# Se ja nao for possivel reduzir o tabuleiro em nenhuma das 
+		# direcoes e se ja nao houver nenhuma posicao com o valor 0, 
+		# entao o tabuleiro esta completo.
+		if not tabuleiro_reduz(t,d) and not tabuleiro_posicoes_vazias(t):
 			return True
 		return False	
 	
@@ -282,7 +286,7 @@ def escreve_tabuleiro(t): # Transformador de saida     #DONE
            Escreve para o ecra a representacao externa de um tabuleiro de 2048.
 	   Se os argumentos nao forem validos gera um ValueError.'''
 	
-	if e_tabuleiro(t) == True:
+	if e_tabuleiro(t) == True: 
 	
 		print ('[',t[(1,1)],']','[', t[(1,2)],']','[', t[(1,3)],']',\
 		       '[', t[(1,4)] ,'] ')
