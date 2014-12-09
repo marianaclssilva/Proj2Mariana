@@ -279,7 +279,7 @@ def tabuleiro_terminado(t): # Reconhecedor    # DONE
 		# Se ja nao for possivel reduzir o tabuleiro em nenhuma das 
 		# direcoes e se ja nao houver nenhuma posicao com o valor 0, 
 		# entao o tabuleiro esta completo.
-		if not tabuleiro_posicoes_vazias(t):
+		if not tabuleiro_reduz(t,d) and not tabuleiro_posicoes_vazias(t):
 			return True
 		return False	
 	
